@@ -1,0 +1,12 @@
+torchrun --nproc_per_node NUM_OF_GPU \
+-m run \
+--output_dir MODEL_SAVE_PATH \
+--model_name_or_path MODEL_NAME_OR_PATH \
+--train_data ./toy_finetune_data.jsonl \
+--learning_rate 1e-5 \
+--fp16 \
+--num_train_epochs 5 \
+--per_device_train_batch_size {large batch size; set 1 for toy data} \
+--dataloader_drop_last True \
+--logging_steps 10 \
+--save_steps 1000 \
